@@ -2,44 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5768251-0aa3-4db5-a111-54c886ca2249" name="Default Changelist" comment="midterm">
-      <change afterPath="$PROJECT_DIR$/src/src/algorithm/Numbers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/algorithm/Sort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/algorithm/UnitTestSorting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/data/self-driving-car" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/databases/ConnectDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/databases/UnitTestConnectDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/databases/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/datastructure/DataReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/datastructure/UseArrayList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/datastructure/UseMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/datastructure/UseQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/definition/core-java-conceptual-questions" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/definition/data-structure-questions" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/design/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/design/EmployeeInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/design/FortuneEmployee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/design/Months.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/design/UnitTestingEmployeeInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/math/Factorial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/math/Fibonacci.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/math/FindMissingNumber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/math/LowestNumber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/math/MakePyramid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/math/Pattern.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/math/PrimeNumber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/math/UnitTestingMath.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/parser/ProcessStudentInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/parser/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/parser/UnitTestingStudentProfile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/parser/XmlReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/parser/qtp.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/parser/selenium.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/problems/Anagram.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/problems/DuplicateWord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/problems/Palindrome.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/problems/Permutation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/problems/UnitTestingStringProblem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/secret.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,7 +16,7 @@
     <session id="-1623742094">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
+          <entry key="project.closed" value="21" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="15" />
           <entry key="project.open.time.10" value="1" />
@@ -118,7 +82,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/src/datastructure/UseQueue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
+            <state relative-caret-position="168">
               <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -193,6 +157,7 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -223,6 +188,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="453" />
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="773" />
@@ -326,7 +292,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544636924586" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544637766302" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -468,7 +434,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="773" extended-state="0" />
+    <frame x="453" y="23" width="1280" height="773" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18578352" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -769,7 +735,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/src/datastructure/UseQueue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
+        <state relative-caret-position="168">
           <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="imports" expanded="true" />
