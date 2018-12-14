@@ -2,19 +2,35 @@ Please answer the below core-java Questions:
 
 A.
 What jdk contains or composed of and define each components?
+
 What is IDE?
+intergrated development Enviorment
+
 What are the IDEs available in the market to support java?
+Eclipse, InteliJ, NetBean.
+
 Explain the entire java life cycle.
+
 what is class?
+A class is a blue print or print type from which object create.
+
 What is object?
+An object is an software bundle of relted state of behavior.
+
 What is the entry point of an application?
+
 Why main is static?
+This is neccesary because main() is called by the JVM before any objects are made
+
 Which class is the superclass of all classes?
 What is difference between path and classpath variables?
 What is the difference between an Interface and Abstract class?
 Can you make an Object from an Interface and Abstract class ? if not how do you use it ?
 what is Access Specifier?
+
 What is OOP ? Define each feature of java OOP.
+object oriented programming. inheritence, Polymorphism, Abstraction, encapsulation.
+
 What is Java Package and which package is imported by default?
 What is API? Name list of API that you have used so far.
 Does java support multiple inheritance, explain why or why not?
@@ -28,14 +44,24 @@ Can we have multiple constructors in a class?
 If we don't have a constructor declared, what is called during the object creation?
 What is "this" keyword in java ?
 What is "super" keyword in java? How many possible way can you use?
+
 What is JVM stand for ?
+Java Virtual Machine.
+
 Is JVM platform independent?
 What version of java are you using?
 What is JAR stand for ?
 What is the difference between JDK and JVM?
+
 What is the difference between JVM and JRE?
+jvm stand for java virtual machine and jre stand for java runtime enviorment.
+
 What is compile time and run time?
+
 What is heap?
+The heap is the runtime data area from which memory for all class instances and arrays is allocated.
+
+
 How java manage it's memory?
 What is the difference between String, StringBuffer and StringBuilder?
 What is Singleton class?
@@ -43,9 +69,14 @@ What is Serialization and Deserialization?
 when to use transient variable in java?
 Difference between while and do..while loop?
 What is Enum?
+
 What is Iterator?
+iterator interface provides method to itereate over any collection.
+
 Which one will take more memory, an int or Integer?
 Why is String Immutable in Java?
+Sting is immutable because string objects are catched in string pool.
+
 What is constructor chaining in Java?
 The difference between Serial and Parallel Garbage Collector?
 What is JIT stands for?
@@ -54,18 +85,40 @@ Can you guarantee the garbage collection process?
 What is the difference between stack and heap in Java?
 What is reflection in java and why is it useful?
 what is multithreading in java?
+
 What is the use of synchronization in Java?
+Synchronized keyword in Java is used to provide mutually exclusive access to a shared resource with multiple threads in Java.
+
 What is Framework?
+
 What are the testing Framework available in java?
+Junit, REST Assured, Selenium, TestNG etc.
+
 Difference between jUnit and testNG?
+
 What are the dependencies for this project?
 what is dependency injection in java?
 What is static binding and dynamic binding?
+
 What is Collections Framework?
+the collection framwork represents a unified architecture for sorting and manipulating a group of object.
+
 What is Collection and Collections?
+a collection represent a single unit of object.
+
+
 Explain what is main method?
+a main method is entry point of java application.
+
+
+
 What is StringBuffer and String Builder?
+A string buffer is like a String, but can be modified.
+A mutable sequence of characters
+
 What do you understand by Thread Safe?
+Thread-Safety is just not java dependent, its a concept in such multi threaded programming scenarios.
+
 
 
 

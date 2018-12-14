@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="mysql-connector-java-8.0.12">
+    <archive path="/Users/jewelahamed/Desktop/MyMidterm/mysql-connector-java-8.0.12.jar" />
+  </library>
+  <library name="mysql-connector-java-8.0.122">
+    <archive path="/Users/jewelahamed/Desktop/MyMidterm/mysql-connector-java-8.0.12.jar" />
+  </library>
+  <library name="mongodb-osx-ssl-x86_64-4.0.4">
+    <archive path="/Users/jewelahamed/Downloads/mongodb-osx-ssl-x86_64-4.0.4.tar" />
+  </library>
+</eclipse-userlibraries>
+

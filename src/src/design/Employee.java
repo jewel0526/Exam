@@ -1,6 +1,5 @@
-package src.design;
-
-public interface Employee {
+//package src.design;
+//public interface Employee {
 	
 	/*Employee is an Interface which contains multiple unimplemented methods.Again few methods
 	has been declared in below. you need to brainstorm to add more methods to meet the business requirements.
@@ -10,22 +9,24 @@ public interface Employee {
 	
 	//employeeId() will return employee id.
 
-	public int employeeId();
+	//public int employeeId();
 	
 	// employeeName() will return employee name
-	public String employeeName();
+
+	//public String employeeName();
 	
 	 // will assign employee to departments
 
-    public void assignDepartment();
-	assignDepartment();
+    //public void assignDepartment();
+
+	//Employee();
 
 	//calculate employee salary
 
-	public int calculateSalary();
+	//public int calculateSalary();
 	
 	//employee benefit
 
-	public void benefitLayout();
+//	public void benefitLayout();
 
-}
+//}

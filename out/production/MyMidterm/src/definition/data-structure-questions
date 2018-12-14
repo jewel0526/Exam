@@ -5,8 +5,15 @@ A.
 What are the various operations that can be performed on different Data Structures?
 List out the areas in which data structures are applied extensively?
 what is an Array?
+An array is a container object that holds a fixed number of values of a single type.
+
 what is the difference between the Array and ArrayList?
+Arrays are fixed size where arraylist is dynamic.
+also array doesnt provides a lot of feature where arrayList has such as Add, addAll, RemoveAll.
+
 what is LinkedList?
+In Java, LinkedList is a generic class that extends the AbstractSequentialList and implements List, Queue, and Deque interfaces.
+
 How is an Array different from Linked List?
 what is queue?
 what is stack?
@@ -16,7 +23,10 @@ what is the best case to search an element from an array?
 what is the worst case to search an element from an array?
 what is tree in data structure?
 what is graph in data structure?
+
 what is the difference between the HashTable and HashMap?
+Hashmap allow null key and value wherese Hashtable doesnt allow.
+
 What are the major data structures used in the following areas : RDBMS, Network data model and Hierarchical data model.
 How HashMap works in java?
 What is ArrayIndexOutOfBoundsException in java? When it occurs?

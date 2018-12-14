@@ -1,43 +1,30 @@
 package databases;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.MongoClient;
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import org.bson.Document;
-import parser.Student;
+import src.databases.User;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-/**
- * Created by mrahman on 04/02/18.
- */
-
 public class ConnectDB {
-
-    public static MongoDatabase mongoDatabase = null;
 
     public static Connection connect = null;
     public static Statement statement = null;
     public static PreparedStatement ps = null;
     public static ResultSet resultSet = null;
 
-    public Properties loadProperties() throws IOException{
+    public static Properties loadProperties() throws IOException{
         Properties prop = new Properties();
         InputStream ism = new FileInputStream("src/secret.properties");
         prop.load(ism);
         ism.close();
         return prop;
     }
-    public Connection connectToMySql() throws IOException, SQLException, ClassNotFoundException {
+    public static Connection connectToMySql() throws IOException, SQLException, ClassNotFoundException {
         Properties prop = loadProperties();
         String driverClass = prop.getProperty("MYSQLJDBC.driver");
         String url = prop.getProperty("MYSQLJDBC.url");
@@ -48,13 +35,7 @@ public class ConnectDB {
         System.out.println("Database is connected");
         return connect;
     }
-    public MongoDatabase connectToMongoDB() {
-        MongoClient mongoClient = new MongoClient();
-        mongoDatabase = mongoClient.getDatabase("students");
-        System.out.println("Database Connected");
 
-        return mongoDatabase;
-    }
     public List<String> readDataBase(String tableName, String columnName)throws Exception{
         List<String> data = new ArrayList<String>();
 
@@ -63,6 +44,21 @@ public class ConnectDB {
             statement = connect.createStatement();
             resultSet = statement.executeQuery("select * from " + tableName);
             data = getResultSetData(resultSet, columnName);
+        } catch (ClassNotFoundException e) {
+            throw e;
+        }finally{
+            close();
+        }
+        return data;
+    }
+    public List<String> readDataBase(String tableName, String columnName1, String columnName2)throws Exception{
+        List<String> data = new ArrayList<String>();
+
+        try {
+            connectToMySql();
+            statement = connect.createStatement();
+            resultSet = statement.executeQuery("select * from " + tableName);
+            data = getResultSetData(resultSet, columnName1, columnName2);
         } catch (ClassNotFoundException e) {
             throw e;
         }finally{
@@ -93,14 +89,24 @@ public class ConnectDB {
         }
         return dataList;
     }
+    private List<String> getResultSetData(ResultSet resultSet2, String columnName1, String columnName2) throws SQLException {
+        List<String> dataList = new ArrayList<String>();
+        while(resultSet.next()){
+            String itemName1 = resultSet.getString(columnName1);
+            String itemName2 = resultSet.getString(columnName2);
+            dataList.add(itemName1);
+            dataList.add(itemName2);
+        }
+        return dataList;
+    }
 
-    public void insertDataFromArrayToMySql(int [] ArrayData, String tableName, String columnName)
+    public void InsertDataFromArryToMySql(int [] ArrayData,String tableName, String columnName)
     {
         try {
             connectToMySql();
             ps = connect.prepareStatement("DROP TABLE IF EXISTS `"+tableName+"`;");
             ps.executeUpdate();
-            ps = connect.prepareStatement("CREATE TABLE `"+tableName+"` (`ID` int(11) NOT NULL AUTO_INCREMENT,`SortingNumbers` bigint(20) DEFAULT NULL,  PRIMARY KEY (`ID`) );");
+            ps = connect.prepareStatement("CREATE TABLE `"+tableName+"` (`ID` int(11) NOT NULL AUTO_INCREMENT,`"+columnName+"` bigint(20) DEFAULT NULL,  PRIMARY KEY (`ID`) );");
             ps.executeUpdate();
             for(int n=0; n<ArrayData.length; n++){
                 ps = connect.prepareStatement("INSERT INTO "+tableName+" ( "+columnName+" ) VALUES(?)");
@@ -117,7 +123,41 @@ public class ConnectDB {
         }
     }
 
-    public void insertDataFromStringToMySql(String ArrayData,String tableName, String columnName)
+    public void createTableFromStringToMySql(String tableName, String columnName){
+        try {
+            connectToMySql();
+            ps = connect.prepareStatement("DROP TABLE IF EXISTS `"+tableName+"`;");
+            ps.executeUpdate();
+            ps = connect.prepareStatement("CREATE TABLE `"+tableName+"` (`ID` int(11) NOT NULL AUTO_INCREMENT,`"+columnName+"` varchar(2500) DEFAULT NULL,  PRIMARY KEY (`ID`) );");
+            ps.executeUpdate();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void createTableFromStringToMySql(String tableName, String columnName1,String columnName2){
+        try {
+            connectToMySql();
+            ps = connect.prepareStatement("DROP TABLE IF EXISTS `"+tableName+"`;");
+            ps.executeUpdate();
+            ps = connect.prepareStatement("CREATE TABLE `"+tableName+"` (`ID` int(11) NOT NULL AUTO_INCREMENT,`"+columnName1+"` varchar(2500) DEFAULT NULL,`"+columnName2+"` varchar(2500) DEFAULT NULL,  PRIMARY KEY (`ID`) );");
+            ps.executeUpdate();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void InsertDataFromStringToMySql(String ArrayData,String tableName, String columnName)
     {
         try {
             connectToMySql();
@@ -149,15 +189,33 @@ public class ConnectDB {
         return data;
     }
 
-    public void insertDataFromArrayListToMySql(List<Student> list, String tableName, String columnName)
+    public void InsertDataFromArrayListToMySql(List<String> list,String tableName, String columnName1,String columnName2 )
     {
         try {
             connectToMySql();
-            ps = connect.prepareStatement("DROP TABLE IF EXISTS `"+tableName+"`;");
+            String key = list.get(0);
+            String value = list.get(1);
+            System.out.println("key is:"+ key + " value is:" + value);
+
+            ps = connect.prepareStatement("INSERT INTO "+tableName+" ( " + columnName1 + "," + columnName2 + " ) VALUES(?,?)");
+            ps.setString(1,key);
+            ps.setString(2,value);
             ps.executeUpdate();
-            ps = connect.prepareStatement("CREATE TABLE `"+tableName+"` (`ID` int(11) NOT NULL AUTO_INCREMENT,`SortingNumbers` bigint(20) DEFAULT NULL,  PRIMARY KEY (`ID`) );");
-            ps.executeUpdate();
-            for(Student st:list){
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void InsertDataFromArrayListToMySql(List<Object> list,String tableName, String columnName)
+    {
+        try {
+            connectToMySql();
+            for(Object st:list){
                 ps = connect.prepareStatement("INSERT INTO "+tableName+" ( "+columnName+" ) VALUES(?)");
                 ps.setObject(1,st);
                 ps.executeUpdate();
@@ -171,79 +229,7 @@ public class ConnectDB {
             e.printStackTrace();
         }
     }
-
-    public String insertToMongoDB(User user){
-        String profile = user.getName();
-        MongoDatabase mongoDatabase = connectToMongoDB();
-        MongoCollection<Document> collection = mongoDatabase.getCollection("profile");
-        Document document = new Document().append("name",user.getName()).append("id", user.getId());
-        collection.insertOne(document);
-        return profile + " has been registered";
-    }
-    public String insertToMongoDB(List<Student> student,String profileName){
-        MongoDatabase mongoDatabase = connectToMongoDB();
-        MongoCollection myCollection = mongoDatabase.getCollection(profileName);
-        boolean collectionExists = mongoDatabase.listCollectionNames()
-                .into(new ArrayList<String>()).contains(profileName);
-        if(collectionExists) {
-            myCollection.drop();
-        }
-        for(int i=0; i<student.size(); i++){
-            MongoCollection<Document> collection = mongoDatabase.getCollection(profileName);
-            Document document = new Document().append("firstName", student.get(i).getFirstName()).append("lastName",
-                    student.get(i).getLastName()).append("score",student.get(i).getScore()).append("id", student.get(i).getId());
-            collection.insertOne(document);
-        }
-        return  "Student has been registered";
-    }
-
-    public List<User> readUserFromMongoDB(){
-        List<User> list = new ArrayList<User>();
-        User user = new User();
-        MongoDatabase mongoDatabase = connectToMongoDB();
-        MongoCollection<Document> collection = mongoDatabase.getCollection("profile");
-        BasicDBObject basicDBObject = new BasicDBObject();
-        FindIterable<Document> iterable = collection.find(basicDBObject);
-        for(Document doc:iterable){
-            String id = "";
-            int idInt = 0;
-            String name = (String)doc.get("name");
-            user.setName(name);
-            try {
-                id = (String) doc.get("id");
-                int convertId = Integer.parseInt(id);
-                user.setId(convertId);
-            }catch(Exception ex){
-                idInt = (int) doc.get("id");
-                user.setId(idInt);
-            }
-            user = new User(user.getName(),user.getId());
-            list.add(user);
-        }
-        return list;
-    }
-    public List<Student> readStudentListFromMongoDB(String profileName){
-        List<Student> list = new ArrayList<Student>();
-        Student student = new Student();
-        MongoDatabase mongoDatabase = connectToMongoDB();
-        MongoCollection<Document> collection = mongoDatabase.getCollection(profileName);
-        BasicDBObject basicDBObject = new BasicDBObject();
-        FindIterable<Document> iterable = collection.find(basicDBObject);
-        for(Document doc:iterable){
-            String firstName = (String)doc.get("firstName");
-            student.setFirstName(firstName);
-            String lastName = (String)doc.get("lastName");
-            student.setLastName(lastName);
-            String score = (String)doc.get("score");
-            student.setScore(score);
-            String id = (String) doc.get("id");
-            student.setId(id);
-            student = new Student(student.getFirstName(),student.getLastName(),student.getScore(),student.getId());
-            list.add(student);
-        }
-        return list;
-    }
-    public void insertProfileToMySql(String tableName, String columnName1, String columnName2)
+    public static void insertProfileToMySql(String tableName, String columnName1, String columnName2)
     {
         try {
             connectToMySql();
@@ -262,7 +248,7 @@ public class ConnectDB {
         }
     }
 
-    public List<User> readFromMySql()throws IOException, SQLException, ClassNotFoundException{
+    public static List<User> readFromMySql()throws IOException, SQLException, ClassNotFoundException{
         List<User> list = new ArrayList<>();
         User user = null;
         try{
@@ -292,16 +278,12 @@ public class ConnectDB {
 
     public static void main(String[] args)throws IOException, SQLException, ClassNotFoundException {
 
-    	/*
+
         insertProfileToMySql("profile","name", "id");
         List<User> list = readFromMySql();
         for(User user:list){
             System.out.println(user.getName()+ " " + user.getId());
         }
-        String message = insertToMongoDB(new User("Tanima Chowdhury", 3539));
-        List<User> user = readFromMongoDB();
-        */
-
     }
 
 }

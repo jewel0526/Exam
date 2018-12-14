@@ -1,15 +1,12 @@
 package src.databases;
 
-/**
- * Created by mrahman on 4/23/17.
- */
+
 public class User {
 
-    String name;
+    String name; int id;
 
-    int id;
 
-    public User(){}
+    public User(){ }
 
     public User(String name, int id) {
         this.name = name;
@@ -25,8 +22,8 @@ public class User {
 
     public int getId() {
         return id;
-    }
 
+    }
     public void setId(int id) {
         this.id = id;
     }
